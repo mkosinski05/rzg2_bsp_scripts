@@ -67,7 +67,7 @@ if [ "${TEXT[7]}" != "" ] ; then
 	)
 elif [ "${TEXT[5]}" != "" ] ; then
 	DISK=$(
-	whiptail --title "Select your Drive" --menu "Below is a list of Removable Media found on your system" 0 0 0 \
+	whiptail --title "Select your Drive" --menu "Below is a list of Removable Media found on your system1" 0 0 0 \
 		"${TEXT[1]}" "${TEXT[2]}"\
 		"${TEXT[3]}" "${TEXT[4]}"\
 		"${TEXT[5]}" "${TEXT[6]}"\
@@ -75,14 +75,14 @@ elif [ "${TEXT[5]}" != "" ] ; then
 	)
 elif [ "${TEXT[3]}" != "" ] ; then
 	DISK=$(
-	whiptail --title "Select your Drive" --menu "Below is a list of Removable Media found on your system" 0 0 0 \
+	whiptail --title "Select your Drive" --menu "Below is a list of Removable Media found on your system2" 0 0 0 \
 		"${TEXT[1]}" "${TEXT[2]}"\
 		"${TEXT[3]}" "${TEXT[4]}"\
 		 3>&2 2>&1 1>&3
 	)
 else
 	DISK=$(
-	whiptail --title "Select your Drive" --menu "Below is a list of Removable Media found on your system" 0 0 0 \
+	whiptail --title "Select your Drive" --menu "Below is a list of Removable Media found on your system3" 0 0 0 \
 		"${TEXT[1]}" "${TEXT[2]}"\
 		 3>&2 2>&1 1>&3
 	)
@@ -98,6 +98,7 @@ fi
 
 FAT_SZ=$(
 whiptail --title "Select Size of FAT Partition" --default-item "500M" --menu "What would you like the size of the FAT partition to be?\nThis will hold the kernel and Device Tree" 0 0 0 \
+	"128M" ""\
 	"250M" ""\
 	"500M" "(recomended)"\
 	"750M" ""\

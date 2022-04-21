@@ -109,7 +109,8 @@ sudo mkfs.vfat -F 16 -n $FAT_LABEL $LOOP_DEVICE
 # mount this loop device (partition) so we can copy files into it
 mkdir -p ${TMP}/loop_mount/fat16
 sudo mount $LOOP_DEVICE ${TMP}/loop_mount/fat16
-sudo cp -r $FAT_FILES/* ${TMP}/loop_mount/fat16
+sudo cp -r $FAT_FILES/$IMAGE_FILE ${TMP}/loop_mount/fat16
+sudo cp -r $FAT_FILES/$DTB_FILE ${TMP}/loop_mount/fat16
 sudo umount  ${TMP}/loop_mount/fat16
 
 # Release the loop device
@@ -128,7 +129,7 @@ sudo mkfs.${EXT_TYPE} -L $EXT_LABEL $LOOP_DEVICE
 # mount this loop device (partition) so we can copy files into it
 mkdir -p ${TMP}/loop_mount/ext
 sudo mount $LOOP_DEVICE ${TMP}/loop_mount/ext
-sudo cp -r $EXT_FILES/* ${TMP}/loop_mount/ext
+sudo tar -vxf $EXT_FILES/$TARGZ_FILE ${TMP}/loop_mount/ext
 sudo umount  ${TMP}/loop_mount/ext
 
 # Release the loop device
